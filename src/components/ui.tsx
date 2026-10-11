@@ -135,7 +135,7 @@ export function Td({ children, right, className }: { children: React.ReactNode; 
 
 export function Table({ children }: { children: React.ReactNode }) {
   return (
-    <div className="-mx-4 overflow-x-auto px-4">
+    <div className="relative -mx-4 overflow-x-auto px-4">
       <table className="w-full border-collapse text-sm [&_tbody_tr]:border-t [&_tbody_tr]:border-border">{children}</table>
     </div>
   );

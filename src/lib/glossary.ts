@@ -211,6 +211,32 @@ export const GLOSSARY = {
     title: "Keep rule",
     short: "A model (LightGBM, Kronos) stays only if its paper book clearly beats the plain rules. Otherwise it's dropped.",
   },
+  backtest: {
+    title: "Backtest",
+    short: "Running the rules on past prices to see what would have happened, with real costs and next-day fills.",
+    more: "A good backtest doesn't guarantee future profit, but a bad one is a strong sign the rules don't work.",
+  },
+  walkforward: {
+    title: "Walk-forward",
+    short: "Testing on years the rules were not tuned on. Rules were tuned on 2014–21; 2022–24 is the honest check.",
+    more: "If results hold up in the test years, the rules are less likely to be fitted to past noise.",
+  },
+  finalPeriod: {
+    title: "Final period",
+    short: "2025 to now: years kept aside for one last check. Looking at it again and again turns it into tuning data.",
+  },
+  review: {
+    title: "Paper review",
+    short: "A go / no-go check after some weeks of paper trading: does the paper ledger match a replay, and are the numbers good enough?",
+  },
+  heavyJob: {
+    title: "Heavy job",
+    short: "A job that downloads data or replays years of prices. Only one runs at a time so they don't slow each other down or clash.",
+  },
+  job: {
+    title: "Jobs",
+    short: "Each button runs the same command you would type in the terminal (e.g. `stock-signals evening`). The result also goes to Telegram.",
+  },
 } satisfies Record<string, Term>;
 
 export type TermKey = keyof typeof GLOSSARY;

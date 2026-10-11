@@ -250,3 +250,30 @@ export interface Baskets {
   baskets: BasketDetail[];
   capital: Record<string, number>;
 }
+
+export type JobStatus = "running" | "cancelling" | "succeeded" | "failed" | "cancelled";
+
+export interface Job {
+  id: string;
+  kind: string;
+  params: Record<string, unknown>;
+  command: string;
+  heavy: boolean;
+  status: JobStatus;
+  created_at: string;
+  started_at: string | null;
+  finished_at: string | null;
+  exit_code: number | null;
+  error: string | null;
+}
+
+export interface JobWithLog extends Job {
+  /** Every line ever written; `log` holds the lines after the requested `since`. */
+  log_total: number;
+  log: string[];
+}
+
+export interface JobList {
+  jobs: Job[];
+  running: Job[];
+}

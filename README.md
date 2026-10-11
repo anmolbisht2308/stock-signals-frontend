@@ -35,9 +35,13 @@ port, also set `FRONTEND_ORIGIN` in the bot's `.env`.
 | Dashboard | Market mode (traffic light), data freshness, schedule, each paper book, both baskets, tomorrow's plan |
 | Positions | Open positions with stop/targets and P&L, the next-open plan, every closed trade with R and costs |
 | Baskets | Core and satellite: value, return, invested %, holdings with weight vs target, pending orders, activity |
+| Run | Buttons for update / evening / scan / backtest / walk-forward / basket backtest / paper review / Telegram test, each with a plain explanation; live log, cancel, history; pause / resume signals |
 
-Coming next (stock-signals `docs/PLAN.md`, Phase 10): job buttons with live logs (10.3), charts and the
-performance/backtest/data-health/stock pages (10.4), editable settings and a Learn page (10.5).
+Jobs run on the API side as the same `stock-signals` commands you would type, so their results also go to
+Telegram. Only one heavy job runs at a time.
+
+Coming next (stock-signals `docs/PLAN.md`, Phase 10): charts and the performance/backtest/data-health/stock
+pages (10.4), editable settings and a Learn page (10.5).
 
 ## Develop
 

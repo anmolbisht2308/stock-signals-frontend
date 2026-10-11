@@ -21,6 +21,10 @@ time.
 `src/app/login` · `src/app/(panel)/*` (behind `AuthGate`, with `Sidebar`) · `src/components/ui.tsx` (Card, Stat,
 Badge, Table, Empty, ErrorBox, skeletons) · `src/components/info-tip.tsx` · `src/lib/{api,format,glossary,verdict}.ts`.
 
+Run page: `src/lib/jobs.ts` (button catalogue; its kinds and params must match `SPECS` in the backend's
+`job_runner.py`) · `src/components/jobs/*` · `src/hooks/use-job-log.ts` (polls `/api/jobs/:id?since=N` while a
+job runs) · `src/components/pause-toggle.tsx`. Phones get a bottom tab bar (`sidebar.tsx`).
+
 ## Commands
 
 `npm run dev` · `npm test` · `npm run lint` · `npm run typecheck` · `npm run build`

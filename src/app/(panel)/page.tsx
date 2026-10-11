@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 import { InfoTip } from "@/components/info-tip";
+import { PauseToggle } from "@/components/pause-toggle";
 import { PlanTable } from "@/components/plan-table";
 import { Badge, Card, CardTitle, Empty, ErrorBox, PageHeader, PageSkeleton, Stat } from "@/components/ui";
 import { api, type Dashboard } from "@/lib/api";
@@ -24,9 +25,9 @@ export default function DashboardPage() {
         title="Dashboard"
         intro="Everything the bot knows today, in one place. Tap any ⓘ for a plain explanation."
       >
-        <div className="flex flex-wrap gap-2">
-          {d.paused && <Badge tone="warn">Paused</Badge>}
+        <div className="flex flex-wrap items-center gap-2">
           <Badge tone={fresh.tone}>Data: {day(d.latest_session)}</Badge>
+          <PauseToggle paused={d.paused} />
         </div>
       </PageHeader>
 
@@ -62,7 +63,14 @@ export default function DashboardPage() {
 
         <Card>
           <CardTitle term="dataRun">Data</CardTitle>
-          <p className="mb-3 text-sm">{fresh.text}</p>
+          <p className="mb-3 text-sm">
+            {fresh.text}{" "}
+            {fresh.tone !== "good" && (
+              <Link href="/run" className="text-accent hover:underline">
+                Update prices →
+              </Link>
+            )}
+          </p>
           {d.last_data_run ? (
             <dl className="space-y-1 text-sm">
               <Row label="Last run" value={when(d.last_data_run.finished_at)} />
